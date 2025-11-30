@@ -1,6 +1,6 @@
 let timerElement = document.getElementById('timer');
 
-let timeLeft = parseInt(timerElement.textContent, 10);
+let timeLeft = Number(timerElement.textContent);
 
 const countdown = setInterval(() => {
     timeLeft--;
