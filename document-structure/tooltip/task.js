@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
   const tooltip = document.createElement('div');
   tooltip.className = 'tooltip';
   document.body.appendChild(tooltip);
@@ -45,4 +44,3 @@ document.addEventListener('DOMContentLoaded', function() {
       hideTooltip();
     }
   });
-});
