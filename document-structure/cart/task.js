@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
     const productsContainer = document.querySelector('.products');
     const cartProducts = document.querySelector('.cart__products');
     
@@ -41,23 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const currentCount = parseInt(cartProductCount.textContent);
                 cartProductCount.textContent = currentCount + quantity;
             } else {
-                const cartProduct = document.createElement('div');
-                cartProduct.className = 'cart__product';
-                cartProduct.dataset.id = productId;
+                const cartProductHTML = `
+                    <div class="cart__product" data-id="${productId}">
+                        <img class="cart__product-image" src="${productImage.src}" alt="${productImage.alt}">
+                        <div class="cart__product-count">${quantity}</div>
+                    </div>
+                `;
                 
-                const cartProductImage = document.createElement('img');
-                cartProductImage.className = 'cart__product-image';
-                cartProductImage.src = productImage.src;
-                cartProductImage.alt = productImage.alt;
-                
-                const cartProductCount = document.createElement('div');
-                cartProductCount.className = 'cart__product-count';
-                cartProductCount.textContent = quantity;
-                
-                cartProduct.appendChild(cartProductImage);
-                cartProduct.appendChild(cartProductCount);
-                cartProducts.appendChild(cartProduct);
+                cartProducts.insertAdjacentHTML('beforeend', cartProductHTML);
             }
         }
     });
-});
