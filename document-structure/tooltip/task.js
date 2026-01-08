@@ -5,6 +5,7 @@
   let activeElement = null;
 
   function showTooltip(element, event) {
+    event.preventDefault();
     if (activeElement === element) {
       hideTooltip();
       return;
@@ -22,7 +23,6 @@
 
     element.removeAttribute('title');
     activeElement = element;
-    event.preventDefault();
   }
 
   function hideTooltip() {
@@ -39,6 +39,7 @@
     const target = event.target;
     
     if (target.classList.contains('has-tooltip')) {
+      event.preventDefault();
       showTooltip(target, event);
     } else if (activeElement && target !== activeElement) {
       hideTooltip();
